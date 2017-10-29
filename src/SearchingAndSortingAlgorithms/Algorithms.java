@@ -1,5 +1,7 @@
 package SearchingAndSortingAlgorithms;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Algorithms {
@@ -12,8 +14,8 @@ public class Algorithms {
 		return 0;
 	}
 
-	public static int countPearls(List<Boolean> oysters) {
-		int value = 0;
+	public static int countPearls(List<Boolean> oysters) {				
+		int value = 0;												
 		for (int i = 0; i < oysters.size(); i++) {
 			if (oysters.get(i) == true) {
 				value += 1;
@@ -43,10 +45,34 @@ public class Algorithms {
 	}
 
 	public static boolean containsSOS(List<String> message) {
-		if (message.contains("... --- ...")) {
-			return true;
+		for(int i = 0; i < message.size(); i++) {
+			if(message.get(i).equals(" ... --- ... ")) {
+				return true;
+			}
 		}
 		return false;
 	}
+	
+	public static List<Double> sortScores(List<Double> list){
+		List<Double> answer = new ArrayList<Double>();
+		for(int i = 0; i < list.size(); i++) {
+			answer.add(list.get(i));
+		}
+		Collections.sort(answer);
+		return answer;
+	}
+
+
+	public static List<String> sortDNA(List<String> unsorted){
+		List<Integer> numbers = new ArrayList<Integer>();
+		List<String> answer = new ArrayList<String>();
+		for(int i = 0; i < unsorted.size(); i++) {
+			numbers.add(unsorted.get(i).length());
+		}
+		Collections.sort(numbers);
+		
+		return answer;
+	}
+	
 	// Add other methods here
 }
